@@ -1,0 +1,5 @@
+package com.ahmedhajiyev.menu.business.responses;
+
+public class GetAllMenuDetailsResponse {
+
+}
