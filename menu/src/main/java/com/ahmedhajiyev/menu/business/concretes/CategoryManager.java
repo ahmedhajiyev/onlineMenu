@@ -1,5 +1,34 @@
 package com.ahmedhajiyev.menu.business.concretes;
 
-public class CategoryManager {
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ahmedhajiyev.menu.business.abstracts.CategoryService;
+import com.ahmedhajiyev.menu.business.requests.category.CreateCategoryRequest;
+import com.ahmedhajiyev.menu.business.responses.GetAllCategoryResponse;
+import com.ahmedhajiyev.menu.dataAccess.abstracts.CategoryRepository;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@Service
+public class CategoryManager implements CategoryService {
+	
+	private CategoryRepository categoryRepository;
+
+	@Override
+	public List<GetAllCategoryResponse> getAll() {
+	
+		return null;
+	}
+
+	@Override
+	public void add(CreateCategoryRequest createCategoryRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }

@@ -1,0 +1,5 @@
+package com.ahmedhajiyev.menu.core.utilities.mappers;
+
+public interface ModelMapperService {
+
+}

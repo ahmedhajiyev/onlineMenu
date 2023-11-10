@@ -1,0 +1,19 @@
+package com.ahmedhajiyev.menu.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.ahmedhajiyev.menu.core.utilities.mappers.ModelMapperService;
+import com.ahmedhajiyev.menu.dataAccess.abstracts.LanguageRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class LanguageManager {
+	
+	private LanguageRepository languageRepository;
+	private ModelMapperService modelMapperService;
+	
+	
+
+}

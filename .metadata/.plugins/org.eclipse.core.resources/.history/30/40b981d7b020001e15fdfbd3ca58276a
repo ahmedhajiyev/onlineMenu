@@ -1,5 +1,0 @@
-package com.ahmedhajiyev.menu.business.requests;
-
-public class CreateCategoryRequest {
-
-}

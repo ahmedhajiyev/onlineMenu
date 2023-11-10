@@ -1,0 +1,5 @@
+package com.ahmedhajiyev.menu.business.requests.languageItem;
+
+public class CreateLanguageItemRequest {
+
+}

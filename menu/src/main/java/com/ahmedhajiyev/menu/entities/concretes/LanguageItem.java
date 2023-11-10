@@ -35,7 +35,7 @@ public class LanguageItem {
 	private Item item_id;
 	
 	@Column(name="item_name")
-	private String item_name;
+	private String itemName;
 	
 	@Column(name="description")
 	private String description;

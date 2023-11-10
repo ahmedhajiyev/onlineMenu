@@ -1,0 +1,18 @@
+package com.ahmedhajiyev.menu.business.rules;
+
+import com.ahmedhajiyev.menu.business.abstracts.LanguageItemService;
+import com.ahmedhajiyev.menu.core.utilities.mappers.exceptions.BusinessException;
+import com.ahmedhajiyev.menu.dataAccess.abstracts.LanguageItemRepository;
+
+public class LanguageItemRules implements CommonService {
+	private LanguageItemRepository languageItemRepository;
+	
+	@Override
+	public void checkIfMenuDescriptionExists(String description) {
+		if (this.languageItemRepository.existsByDescription(description)) {
+			throw new BusinessException("Language Item description already exists");
+		}
+		
+	}
+
+}

@@ -1,0 +1,6 @@
+package com.ahmedhajiyev.menu.business.responses.language;
+
+
+public class GetByDescriptionLanguageResponse {
+
+}

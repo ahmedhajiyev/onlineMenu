@@ -1,0 +1,39 @@
+package com.ahmedhajiyev.menu.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ahmedhajiyev.menu.business.abstracts.LanguageService;
+import com.ahmedhajiyev.menu.business.responses.language.GetAllLanguageResponse;
+import com.ahmedhajiyev.menu.business.responses.language.GetByDescriptionLanguageResponse;
+import com.ahmedhajiyev.menu.business.responses.language.GetByIdLanguageResponse;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/languages")
+@AllArgsConstructor
+public class LanguageController {
+	private LanguageService languageService;
+	
+	@GetMapping
+	public List<GetAllLanguageResponse> getAll() {
+		return languageService.getAll();
+		
+	}
+	
+	@GetMapping("/{id}")
+	public GetByIdLanguageResponse getById(@PathVariable int lang_id) {
+		return languageService.getById(lang_id);
+	}
+	
+	@GetMapping("/{description}")
+	public GetByDescriptionLanguageResponse getByDescription(@PathVariable int lang_description) {
+		return languageService.getByDescription(lang_description);
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.ahmedhajiyev.menu.business.rules;
+
+import com.ahmedhajiyev.menu.core.utilities.mappers.exceptions.BusinessException;
+
+
+public class CommonBusinessRules {
+	private Menu
+	
+	public void checkIfMenuDescriptionExists(String description) {
+		
+	}
+
+
+}

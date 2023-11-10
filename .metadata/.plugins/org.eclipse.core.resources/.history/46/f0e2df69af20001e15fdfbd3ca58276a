@@ -1,6 +1,0 @@
-package com.ahmedhajiyev.menu.business.requests;
-
-public class CreateMenuRequest {
-
-	private String description;
-}

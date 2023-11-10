@@ -1,5 +1,0 @@
-package com.ahmedhajiyev.menu.business.abstracts;
-
-public interface MenuService {
-
-}

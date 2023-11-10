@@ -1,0 +1,5 @@
+package com.ahmedhajiyev.menu.webApi.controllers;
+
+public class LanguageItemController {
+
+}

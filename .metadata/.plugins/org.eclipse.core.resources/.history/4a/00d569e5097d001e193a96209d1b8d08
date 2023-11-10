@@ -1,0 +1,35 @@
+package com.ahmedhajiyev.menu.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ahmedhajiyev.menu.business.abstracts.MenuService;
+import com.ahmedhajiyev.menu.business.requests.create.CreateMenuRequest;
+import com.ahmedhajiyev.menu.business.responses.GetAllMenusResponse;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/menus")
+@AllArgsConstructor
+public class MenuController {
+	private MenuService menuService;
+	
+	public List<GetAllMenusResponse> getAll() {
+		return menuService.getAll();
+	}
+	
+	@PostMapping
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public void add(@RequestBody CreateMenuRequest createMenuRequest) {
+		this.menuService.add(createMenuRequest);
+		
+	}
+
+}
