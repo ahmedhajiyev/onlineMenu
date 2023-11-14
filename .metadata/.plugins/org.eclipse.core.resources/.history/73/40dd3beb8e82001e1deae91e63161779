@@ -1,0 +1,21 @@
+package com.ahmedhajiyev.menu.dataAccess.abstracts;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.ahmedhajiyev.menu.entities.concretes.MenuDetail;
+
+public interface MenuDetailRepository extends JpaRepository<MenuDetail, Integer>{
+	@Query("SELECT e FROM MenuDetail e WHERE e.menu_details_id IN (1, 2, 3)")
+    List<MenuDetail> findMenuDetailsId();
+	
+	@Query("SELECT e FROM MenuDetail e WHERE e.menu_id IN (1, 2, 3)")
+	List<MenuDetail> findMenuId();
+	
+	@Query("SELECT e FROM MenuDetail e WHERE e.lang_id IN (1, 2, 3)")
+	List<MenuDetail> findLangId();
+	
+	
+}

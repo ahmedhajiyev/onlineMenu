@@ -1,5 +1,0 @@
-package com.ahmedhajiyev.menu.business.responses.menu;
-
-public class GetByNameMenuResponse {
-
-}

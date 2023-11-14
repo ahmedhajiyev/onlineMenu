@@ -1,5 +1,0 @@
-package com.ahmedhajiyev.menu.business.requests.create.menu;
-
-public class UpdateMenuRequest {
-
-}
