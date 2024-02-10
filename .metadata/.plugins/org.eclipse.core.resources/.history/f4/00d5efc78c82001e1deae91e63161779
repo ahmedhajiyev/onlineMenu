@@ -1,8 +1,0 @@
-package com.ahmedhajiyev.menu.business.requests.menuDetail;
-
-import lombok.Data;
-
-@Data
-public class UpdateMenuDetailRequest {
-
-}

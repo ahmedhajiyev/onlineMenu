@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ahmedhajiyev.menu.business.abstracts.MenuDetailService;
 import com.ahmedhajiyev.menu.business.requests.menuDetail.CreateMenuDetailRequest;
 import com.ahmedhajiyev.menu.business.requests.menuDetail.UpdateMenuDetailRequest;
-import com.ahmedhajiyev.menu.business.responses.GetAllMenuDetailsResponse;
+import com.ahmedhajiyev.menu.business.responses.menuDetails.GetAllMenuDetailsResponse;
 import com.ahmedhajiyev.menu.business.responses.menuDetails.GetByIdMenuDetailsResponse;
 import com.ahmedhajiyev.menu.core.utilities.mappers.ModelMapperService;
 import com.ahmedhajiyev.menu.dataAccess.abstracts.MenuDetailRepository;

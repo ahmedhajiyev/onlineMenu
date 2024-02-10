@@ -1,9 +1,0 @@
-package com.ahmedhajiyev.menu.business.rules;
-
-import org.springframework.stereotype.Service;
-
-
-public interface CommonService {
-	void checkIfDescriptionExists(String description);
-
-}

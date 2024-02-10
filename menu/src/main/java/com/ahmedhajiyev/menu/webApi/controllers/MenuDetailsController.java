@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ahmedhajiyev.menu.business.abstracts.MenuDetailService;
 import com.ahmedhajiyev.menu.business.requests.menuDetail.CreateMenuDetailRequest;
 import com.ahmedhajiyev.menu.business.requests.menuDetail.UpdateMenuDetailRequest;
-import com.ahmedhajiyev.menu.business.responses.GetAllMenuDetailsResponse;
+import com.ahmedhajiyev.menu.business.responses.menuDetails.GetAllMenuDetailsResponse;
 import com.ahmedhajiyev.menu.business.responses.menuDetails.GetByIdMenuDetailsResponse;
 
 import lombok.AllArgsConstructor;
