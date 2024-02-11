@@ -10,6 +10,7 @@ import com.ahmedhajiyev.menu.business.requests.languageCategory.CreateLanguageCa
 import com.ahmedhajiyev.menu.business.requests.languageCategory.UpdateLanguageCategoryRequest;
 import com.ahmedhajiyev.menu.business.responses.languageCategory.GetAllLanguageCategoryResponse;
 import com.ahmedhajiyev.menu.business.responses.languageCategory.GetByIdLanguageCategoryResponse;
+import com.ahmedhajiyev.menu.business.rules.LanguageCategoryBusinessRules;
 import com.ahmedhajiyev.menu.core.utilities.mappers.ModelMapperService;
 import com.ahmedhajiyev.menu.dataAccess.abstracts.LanguageCategoryRepository;
 import com.ahmedhajiyev.menu.entities.concretes.LanguageCategory;
@@ -22,7 +23,7 @@ public class LanguageCategoryManager implements LanguageCategoryService{
 	
 	private LanguageCategoryRepository languageCategoryRepository;
 	private ModelMapperService modelMapperService;
-	
+	private LanguageCategoryBusinessRules languageCategoryBusinessRules;
 	public List<GetAllLanguageCategoryResponse> getAll() {
 		List<LanguageCategory> languageCategories = languageCategoryRepository.findAll();
 		
@@ -41,10 +42,14 @@ public class LanguageCategoryManager implements LanguageCategoryService{
 	}
 	
 	public void add(CreateLanguageCategoryRequest createLanguageCategoryRequest) {
+		//to avoid having same language category name
+		this.languageCategoryBusinessRules.checkIfLanguagaCategoryName(createLanguageCategoryRequest.getLangCategoryName());
 		LanguageCategory languageCategory = this.modelMapperService.forRequest().map(createLanguageCategoryRequest, LanguageCategory.class);
 		this.languageCategoryRepository.save(languageCategory);
 	}
 	public void update(UpdateLanguageCategoryRequest updateLanguageCategoryRequest) {
+		//to avoid having same language category name
+				this.languageCategoryBusinessRules.checkIfLanguagaCategoryName(updateLanguageCategoryRequest.getLangCategoryName());
 		LanguageCategory languageCategory = this.modelMapperService.forRequest().map(updateLanguageCategoryRequest, LanguageCategory.class);
 		this.languageCategoryRepository.save(languageCategory);
 	}

@@ -60,13 +60,16 @@ public class MenuManager implements MenuService {
 
 	@Override
 	public void add(CreateMenuRequest createMenuRequest) {
+		//to avoid having same item description
 		this.menuBusinessRules.checkIfDescriptionExists(createMenuRequest.getDescription());
 		Menu menu = this.modelMapperService.forRequest().map(createMenuRequest, Menu.class);
 		this.menuRepository.save(menu);
 	}
 
 	public void update(UpdateMenuRequest updateMenuRequest) {
+		//to avoid having same item description
 		this.menuBusinessRules.checkIfDescriptionExists(updateMenuRequest.getDescription());
+		
 		
 		Menu menu = this.modelMapperService.forRequest().map(updateMenuRequest, Menu.class);
 

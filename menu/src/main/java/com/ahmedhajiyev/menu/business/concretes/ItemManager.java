@@ -10,6 +10,7 @@ import com.ahmedhajiyev.menu.business.requests.item.CreateItemRequest;
 import com.ahmedhajiyev.menu.business.requests.item.UpdateItemRequest;
 import com.ahmedhajiyev.menu.business.responses.item.GetAllItemResponse;
 import com.ahmedhajiyev.menu.business.responses.item.GetByIdItemResponse;
+import com.ahmedhajiyev.menu.business.rules.ItemBusinessRules;
 import com.ahmedhajiyev.menu.core.utilities.mappers.ModelMapperService;
 import com.ahmedhajiyev.menu.dataAccess.abstracts.ItemRepository;
 import com.ahmedhajiyev.menu.entities.concretes.Item;
@@ -22,6 +23,7 @@ public class ItemManager implements ItemService {
 
 	private ItemRepository itemRepository;
 	private ModelMapperService modelMapperService;
+	private ItemBusinessRules itemBusinessRules;
 
 	@Override
 	public List<GetAllItemResponse> getAll() {
@@ -43,6 +45,8 @@ public class ItemManager implements ItemService {
 
 	@Override
 	public void add(CreateItemRequest createItemRequest) {
+		//to avoid having same item name
+		this.itemBusinessRules.checkIfItemNameExists(createItemRequest.getItemName());
 		Item item = this.modelMapperService.forRequest()
 				.map(createItemRequest, Item.class);
 		this.itemRepository.save(item);
@@ -50,6 +54,8 @@ public class ItemManager implements ItemService {
 
 	@Override
 	public void update(UpdateItemRequest updateItemRequest) {
+		//to avoid having same item name
+				this.itemBusinessRules.checkIfItemNameExists(updateItemRequest.getItemName());;
 		Item item = this.modelMapperService.forRequest()
 				.map(updateItemRequest, Item.class);
 		this.itemRepository.save(item);

@@ -44,7 +44,8 @@ public class LanguageItemManager implements LanguageItemService {
 
 	@Override
 	public void add(CreateLanguageItemRequest createLanguageItemRequest) {
-		this.languageItemBusinessRules.checkIfDescriptionExists(createLanguageItemRequest.getDescription());
+		//this.languageItemBusinessRules.checkIfDescriptionExists(createLanguageItemRequest.getDescription());
+		//to avoid having same item name
 		this.languageItemBusinessRules.checkIfLanguageItemNameExists(createLanguageItemRequest.getItem_name());
 
 		LanguageItem languageItem = this.modelMapperService.forRequest()
@@ -54,7 +55,8 @@ public class LanguageItemManager implements LanguageItemService {
 
 	@Override
 	public void update(UpdateLanguageItemRequest updateLanguageItemRequest) {
-		this.languageItemBusinessRules.checkIfDescriptionExists(updateLanguageItemRequest.getDescription());
+		//this.languageItemBusinessRules.checkIfDescriptionExists(updateLanguageItemRequest.getDescription());
+		//to avoid having same item name
 		this.languageItemBusinessRules.checkIfLanguageItemNameExists(updateLanguageItemRequest.getItem_name());	
 		LanguageItem languageItem = this.modelMapperService.forRequest().map(updateLanguageItemRequest, LanguageItem.class);
 		this.languageItemRepository.save(languageItem);

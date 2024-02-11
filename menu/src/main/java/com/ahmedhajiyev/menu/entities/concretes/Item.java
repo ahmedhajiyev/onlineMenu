@@ -30,7 +30,7 @@ public class Item {
 	private int item_id;
 
 	@Column(name = "item_name")
-	private String item_name;
+	private String itemName;
 
 	@Column(name = "description")
 	private String description;

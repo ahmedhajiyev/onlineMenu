@@ -10,6 +10,7 @@ import com.ahmedhajiyev.menu.business.requests.category.CreateCategoryRequest;
 import com.ahmedhajiyev.menu.business.requests.category.UpdateCategoryRequest;
 import com.ahmedhajiyev.menu.business.responses.category.GetAllCategoryResponse;
 import com.ahmedhajiyev.menu.business.responses.category.GetByIdCategoryResponse;
+import com.ahmedhajiyev.menu.business.rules.CategoryBusinessRules;
 import com.ahmedhajiyev.menu.core.utilities.mappers.ModelMapperService;
 import com.ahmedhajiyev.menu.dataAccess.abstracts.CategoryRepository;
 import com.ahmedhajiyev.menu.entities.concretes.Category;
@@ -22,6 +23,7 @@ public class CategoryManager implements CategoryService {
 
 	private CategoryRepository categoryRepository;
 	private ModelMapperService modelMapperService;
+	private CategoryBusinessRules categoryBusinessRules;
 
 	@Override
 	public List<GetAllCategoryResponse> getAll() {
@@ -44,12 +46,16 @@ public class CategoryManager implements CategoryService {
 
 	@Override
 	public void add(CreateCategoryRequest createCategoryRequest) {
+		//to avoid having same category names
+		this.categoryBusinessRules.checkIfCategoryNameExists(createCategoryRequest.getCategoryName());
 		Category category = this.modelMapperService.forRequest().map(createCategoryRequest, Category.class);
 		this.categoryRepository.save(category);
 	}
 
 	@Override
 	public void update(UpdateCategoryRequest updateCategoryRequest) {
+		//to avoid having same category names
+				this.categoryBusinessRules.checkIfCategoryNameExists(updateCategoryRequest.getCategoryName());
 		Category category = this.modelMapperService.forRequest().map(updateCategoryRequest, Category.class);
 		this.categoryRepository.save(category);
 	}

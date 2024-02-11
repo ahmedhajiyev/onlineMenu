@@ -35,7 +35,7 @@ public class LanguageCategory {
 	private Category category_id;
 	
 	@Column(name="language_category_name")
-	private String lang_category_name;
+	private String langCategoryName;
 	
 	@Column(name="description")
 	private String description;
